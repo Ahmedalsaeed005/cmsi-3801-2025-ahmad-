@@ -9,3 +9,28 @@ Correct value: 3**35 = 50031545098999707 an exact integer.
 Python returns the exact integer, because they are arbitrary precision.
 JavaScript evaluates numbers as IEEE-754 double-precision floats (53 bits of precision).Near 5×10^16, doubles can’t represent every integer; the spacing between representable integers is 8. The exact result (…9707) is not representable, so it is rounded to the nearest representable double (50031545098999712). When that double is printed with JavaScript’s “shortest round-trip” formatting, you typically see 50031545098999710 even though the stored value is 50031545098999712.
 Bottom line: Python is right (exact). JavaScript shows a rounded value due to floating-point precision and its decimal-printing algorithm.
+
+- 4 
+In JavaScript:
+{x: 3, [y]: 5, z}
+
+- 5
+It is better to not to call JavaScript’s == operator “equals” because == it does type coercion before comparing values this also means it can change the types of the values being compared therfore it leads to confusing results like 0 == false being true. Calling it “equals” suggests it behaves like normal equality in other languages, but it doesn’t. The operator that behaves like real equality in JavaScript is ===, which compares values without changing their types.
+
+- 6
+function arithmeticsequence(start, delta)
+    return coroutine.create(function()
+        local current = start
+        while true do
+            coroutine.yield(current)
+            current = current + delta
+        end
+    end)
+end
+
+- 7
+a) f() * h() - x = 1 * 1 - 1 = 0
+b) f() * h() - x = 1 * 3 - 1 = 2
+
+- 8
+The variables that a function can see are set by the place in the code where it is put and cannot be changed.  But weak binding tries to set the variables based on the last person who called the function.  Shallow binding doesn't really work or fit in that case because static scoping doesn't care about calls and only looks at the structure of the code.
